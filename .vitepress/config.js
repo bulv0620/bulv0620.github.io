@@ -5,6 +5,9 @@ import { getPosts } from './theme/serverUtils'
 const pageSize = 10
 
 export default defineConfig({
+    sitemap: {
+        hostname: 'https://bulv.cc'
+    },
     title: 'bulv.cc',
     description: 'bulv.cc,front-end developer',
     base:'/',
@@ -26,7 +29,7 @@ export default defineConfig({
         outlineTitle: '文章摘要',
         socialLinks: [{ icon: 'github', link: 'https://github.com/bulv0620' }]
     },
-    
+
     srcExclude: ['README.md'], // exclude the README.md , needn't to compiler
 
     vite: {
