@@ -26,7 +26,7 @@
 
         <p class="href">
             Theme from:
-            <a href="https://github.com/airene/vitepress-blog-pure">airene</a>
+            <a href="https://github.com/airene/vitepress-blog-pure" target="_blank">vitepress-blog-pure</a>
         </p>
     </div>
 </template>
@@ -41,7 +41,7 @@ const projects = [
         icon: BridgeIcon,
         title: "Bridge",
         description:
-            "A cross-platform, simple and easy-to-use file synchronization and transfer tool.",
+            "An open-source, cross-platform, and minimalist file synchronization and transfer tool.",
     },
 ];
 </script>
@@ -56,8 +56,8 @@ const projects = [
 }
 
 .avatar {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
 }
 
@@ -67,6 +67,7 @@ const projects = [
 
 .href {
     color: var(--vp-c-text-2);
+    margin: 0;
 }
 
 /* Skills */
@@ -96,7 +97,7 @@ const projects = [
 /* Projects */
 .projects {
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
 }
 
 .projects-title {
@@ -132,12 +133,16 @@ const projects = [
 }
 
 .project-info p {
-    margin: 4px 0 0;
+    line-height: 18px;
+    margin: 0;
     font-size: 14px;
     color: var(--vp-c-text-2);
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 </style>
