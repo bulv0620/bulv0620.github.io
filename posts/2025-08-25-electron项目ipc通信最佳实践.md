@@ -1,17 +1,17 @@
 ---
 date: 2025-08-25
-title: electron项目ipc通信最佳实践
+title: Electron项目IPC通信最佳实践
 tags:
 - Nodejs
 - Typescript
-- electron
+- Electron
 - electron-vite
-- ipc
+- IPC
 - 最佳实践
 description: 这篇博客介绍了一种为 Electron 应用设计的、追求极致类型安全和高度自动化的 IPC 通信封装方案，通过动态生成 API 和精巧的类型体操，让进程间调用像本地函数一样安全直观。
 ---
 
-# electron项目ipc通信最佳实践
+# Electron项目IPC通信最佳实践
 
 ## 一、背景简介
 
