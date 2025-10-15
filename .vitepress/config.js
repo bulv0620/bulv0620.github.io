@@ -5,6 +5,7 @@ import { getPosts } from './theme/serverUtils'
 const pageSize = 10
 
 export default defineConfig({
+    lang: 'zh-CN',
     sitemap: {
         hostname: 'https://bulv.cc'
     },
