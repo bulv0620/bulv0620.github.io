@@ -237,7 +237,7 @@ export function useRemoteRef<T>(channel: string, initialValue: T): Ref<T> {
       const txnId = uuid()
       pending.add(txnId)
       window.remoteRef.updateRemoteRef(channel, {
-        value: toRaw(val),
+        value: JSON.parse(JSON.stringify(toRaw(val))),
         txnId,
       })
     },
