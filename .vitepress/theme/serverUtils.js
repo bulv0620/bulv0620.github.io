@@ -33,16 +33,10 @@ async function generatePaginationPages(total, pageSize) {
             const page = `
 ---
 page: true
-title: ${i === 1 ? 'home' : 'page_' + i}
+title: About
 aside: false
 ---
-<script setup>
-import Page from "./.vitepress/theme/components/Page.vue";
-import { useData } from "vitepress";
-const { theme } = useData();
-const posts = theme.value.posts.slice(${pageSize * (i - 1)},${pageSize * i})
-</script>
-<Page :posts="posts" :pageCurrent="${i}" :pagesNum="${pagesNum}" />
+<About/>
 `.trim()
             const file = paths + `/page_${i}.md`
             await fs.writeFile(file, page)
