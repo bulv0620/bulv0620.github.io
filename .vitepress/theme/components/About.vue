@@ -8,41 +8,65 @@
         <div class="skills">
             <!-- <h2 class="skills-title">Skills</h2> -->
             <div class="skill-wrapper">
-                <div class="skill-item" v-for="(skill, index) in skills" :key="index">{{ skill }}</div>
+                <div class="skill-item" v-for="(skill, index) in skills" :key="index">
+                    <i :class="skill.iconClass"></i>
+                    <span>{{ skill.label }}</span>
+                </div>
             </div>
         </div>
 
         <!-- projects -->
         <div class="projects">
             <h2 class="projects-title">Projects</h2>
-            <div class="project-card" v-for="(project, index) in projects" :key="index">
+            <a class="project-card" v-for="(project, index) in projects" :key="index" :href="project.url" target="_blank">
                 <img class="project-icon" :src="project.icon" alt="icon" />
                 <div class="project-info">
-                    <h3>{{ project.title }}</h3>
+                    <div>{{ project.title }}</div>
                     <p :title="project.description">{{ project.description }}</p>
                 </div>
-            </div>
+            </a>
         </div>
 
-        <p class="href">
-            Theme from:
-            <a href="https://github.com/airene/vitepress-blog-pure" target="_blank">vitepress-blog-pure</a>
-        </p>
+        <!-- to blogs -->
+        <div class="to-blog">
+            <a class="blog-button" href="/pages/blogs">Blogs &gt;</a>
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
 import BridgeIcon from "../assets/images/bridge-icon.png";
 
-const skills = ["Vue.js", "Electron", "NestJS"];
+const skills = [
+    {
+        label: 'Vue.js',
+        iconClass: 'fa-brands fa-vuejs'
+    },
+    {
+        label: 'Electron',
+        iconClass: 'fa-solid fa-atom'
+    },
+    {
+        label: 'NestJs',
+        iconClass: 'fa-solid fa-code'
+    },
+];
 
 const projects = [
     {
         icon: BridgeIcon,
         title: "Bridge",
         description:
-            "An open-source, cross-platform, and minimalist file synchronization and transfer tool.",
+            "A cross-platform file synchronization tool.",
+        url: 'https://github.com/bulv0620/Bridge'
     },
+    // {
+    //     icon: UacIcon,
+    //     title: "UAC-Template",
+    //     description:
+    //         "A user access ctrl template.",
+    //     url: 'https://github.com/bulv0620/UAC-template'
+    // },
 ];
 </script>
 
@@ -92,12 +116,16 @@ const projects = [
     padding: 6px 12px;
     border-radius: 8px;
     font-size: 14px;
+
+    display: flex;
+    gap: 6px;
+    align-items: center;
 }
 
 /* Projects */
 .projects {
     width: 100%;
-    max-width: 450px;
+    max-width: 400px;
 }
 
 .projects-title {
@@ -114,6 +142,7 @@ const projects = [
     background: var(--vp-c-bg-soft);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease;
+    cursor: pointer;
 }
 
 .project-icon {
@@ -144,5 +173,26 @@ const projects = [
     line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+}
+
+/* To Blog Button */
+.to-blog {
+    margin-top: 18px;
+}
+
+.blog-button {
+    display: inline-block;
+    padding: 6px 12px;
+    /* background: var(--vp-c-bg-soft); */
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--vp-c-text-2);
+    font-size: 14px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.blog-button:hover {
+    background: var(--vp-c-bg-mute);
+    transform: translateY(-2px);
 }
 </style>

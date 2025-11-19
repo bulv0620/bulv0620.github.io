@@ -17,5 +17,8 @@
         "globby": "^14.0.1",
         "gray-matter": "^4.0.3",
         "vitepress": "1.6.4"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^7.1.0"
     }
 }
