@@ -27,4 +27,8 @@ body {
     'Helvetica Neue', Helvetica, 'Segoe UI', 'PingFang SC', 'HarmonyOS Sans SC',
     'Noto Sans SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
 }
+
+.VPLocalSearchBox .text {
+    font-size: 1rem !important;
+}
 </style>
