@@ -1,8 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { getPosts } from './theme/serverUtils'
 
-//每页的文章数量
-const pageSize = 10
+const pageSize = 5
 
 export default defineConfig({
     lang: 'zh-CN',
@@ -10,7 +9,7 @@ export default defineConfig({
         hostname: 'https://bulv.cc'
     },
     title: 'bulv.cc',
-    description: 'bulv.cc,front-end developer',
+    description: 'bulv.cc,javascript developer',
     base:'/',
     cacheDir: './node_modules/vitepress_cache',
     ignoreDeadLinks: true,
@@ -19,7 +18,7 @@ export default defineConfig({
         website: 'https://github.com/bulv0620', //copyright link
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Blogs', link: '/pages/blogs' },
+            { text: 'Blogs', link: '/blogs' },
             { text: 'Archives', link: '/pages/archives' },
             { text: 'Tags', link: '/pages/tags' },
         ],

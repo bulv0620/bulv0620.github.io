@@ -1,7 +1,7 @@
 import { globby } from 'globby'
 import matter from 'gray-matter'
 import fs from 'fs-extra'
-import { resolve } from 'path'
+import path, { resolve } from 'path'
 
 async function getPosts(pageSize) {
     let paths = await globby(['posts/**.md'])
@@ -33,17 +33,23 @@ async function generatePaginationPages(total, pageSize) {
             const page = `
 ---
 page: true
-title: About
+title: blogs
 aside: false
 ---
-<About/>
+<script setup>
+import Blogs from "../.vitepress/theme/components/Blogs.vue";
+import { useData } from "vitepress";
+const { theme } = useData();
+const posts = theme.value.posts.slice(${pageSize * (i - 1)},${pageSize * i})
+</script>
+<Blogs :posts="posts" :pageCurrent="${i}" :pagesNum="${pagesNum}" />
 `.trim()
-            const file = paths + `/page_${i}.md`
+            const file = paths + `/blogs/page_${i}.md`
+            await fs.ensureDir(path.dirname(file))
             await fs.writeFile(file, page)
         }
+        await fs.move(paths + '/blogs/page_1.md', paths + '/blogs/index.md', { overwrite: true })
     }
-    // rename page_1 to index for homepage
-    await fs.move(paths + '/page_1.md', paths + '/index.md', { overwrite: true })
 }
 
 function _convertDate(date = new Date().toString()) {

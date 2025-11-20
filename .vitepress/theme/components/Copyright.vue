@@ -3,7 +3,7 @@
         Copyright © 2024 <a class="vitepress" :href="website">{{ webTitle }}</a><br />
     </div>
 </template>
-<script lang="ts" setup>
+<script setup>
 import { useData } from 'vitepress'
 
 const { site, theme } = useData()

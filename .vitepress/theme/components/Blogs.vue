@@ -22,7 +22,7 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { withBase } from 'vitepress'
 const props = defineProps({
     posts: Array,
@@ -51,6 +51,7 @@ const props = defineProps({
     font-size: 0.9375rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
     overflow: hidden;
     color: var(--vp-c-text-2);
@@ -69,6 +70,7 @@ const props = defineProps({
     border: 1px var(--vp-c-divider-light) solid;
     border-right: none;
     font-weight: 400;
+    border-radius: 50% !important;
 }
 .link.active {
     background: var(--vp-c-text-1);

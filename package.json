@@ -19,6 +19,7 @@
         "vitepress": "1.6.4"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^7.1.0"
+        "@fortawesome/fontawesome-free": "^7.1.0",
+        "typed.js": "^2.1.0"
     }
 }

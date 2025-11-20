@@ -1,106 +1,94 @@
 <template>
     <div class="about">
-        <img class="avatar" src="../assets/images/avatar.jpg" alt="avatar" />
-        <h1>Hello, I'm Bulv.</h1>
+        <img class="avatar" src="../assets/images/avatar.png" alt="avatar" />
+        <h1 class="welcome">
+            <span id="welcome"></span>
+        </h1>
         <p class="description">A JavaScript Developer.</p>
 
         <!-- skills -->
         <div class="skills">
-            <!-- <h2 class="skills-title">Skills</h2> -->
             <div class="skill-wrapper">
-                <div class="skill-item" v-for="(skill, index) in skills" :key="index">
-                    <i :class="skill.iconClass"></i>
-                    <span>{{ skill.label }}</span>
+                <div class="skill-item">
+                    <i class="fa-brands fa-vuejs"></i>
+                    <span>Vue.js</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fa-solid fa-atom"></i>
+                    <span>Electron</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fa-solid fa-code"></i>
+                    <span>NestJs</span>
                 </div>
             </div>
         </div>
 
         <!-- projects -->
         <div class="projects">
-            <h2 class="projects-title">Projects</h2>
-            <a class="project-card" v-for="(project, index) in projects" :key="index" :href="project.url" target="_blank">
-                <img class="project-icon" :src="project.icon" alt="icon" />
+            <div class="projects-title">Projects</div>
+            <a class="project-card" href="https://github.com/bulv0620/Bridge" target="_blank">
+                <img class="project-icon" src="../assets/images/bridge-icon.png" alt="icon" />
                 <div class="project-info">
-                    <div>{{ project.title }}</div>
-                    <p :title="project.description">{{ project.description }}</p>
+                    <h3>Bridge</h3>
+                    <p>A cross-platform file synchronization tool.</p>
                 </div>
             </a>
         </div>
 
         <!-- to blogs -->
         <div class="to-blog">
-            <a class="blog-button" href="/pages/blogs">Blogs &gt;</a>
+            <a class="blog-button" href="/blogs">Blogs &gt;</a>
         </div>
     </div>
 </template>
 
-<script lang="ts" setup>
-import BridgeIcon from "../assets/images/bridge-icon.png";
+<script setup>
+import Typed from 'typed.js'
+import { onMounted } from 'vue'
 
-const skills = [
-    {
-        label: 'Vue.js',
-        iconClass: 'fa-brands fa-vuejs'
-    },
-    {
-        label: 'Electron',
-        iconClass: 'fa-solid fa-atom'
-    },
-    {
-        label: 'NestJs',
-        iconClass: 'fa-solid fa-code'
-    },
-];
-
-const projects = [
-    {
-        icon: BridgeIcon,
-        title: "Bridge",
-        description:
-            "A cross-platform file synchronization tool.",
-        url: 'https://github.com/bulv0620/Bridge'
-    },
-    // {
-    //     icon: UacIcon,
-    //     title: "UAC-Template",
-    //     description:
-    //         "A user access ctrl template.",
-    //     url: 'https://github.com/bulv0620/UAC-template'
-    // },
-];
+onMounted(() => {
+    new Typed('#welcome', {
+        strings: [`Hello, I'm bulv.`],
+        typeSpeed: 100,
+    })
+})
 </script>
 
 <style scoped>
 .about {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 24px;
+    padding-top: 12px;
 }
 
 .avatar {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
+    margin: 12px auto;
+    padding: 0;
+}
+
+.welcome {
+    margin: 12px auto;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
 }
 
 .description {
     color: var(--vp-c-text-2);
-}
-
-.href {
-    color: var(--vp-c-text-2);
-    margin: 0;
+    margin: 12px auto;
+    padding: 0;
+    text-align: center;
 }
 
 /* Skills */
 .skills {
     text-align: center;
-}
-
-.skills-title {
-    padding-top: 0;
+    margin: 12px auto;
+    padding: 0;
 }
 
 .skills .skill-wrapper {
@@ -111,7 +99,7 @@ const projects = [
     justify-content: center;
 }
 
-.skills .skill-item {
+.skills .skill-wrapper .skill-item {
     background: var(--vp-c-bg-soft);
     padding: 6px 12px;
     border-radius: 8px;
@@ -126,13 +114,17 @@ const projects = [
 .projects {
     width: 100%;
     max-width: 400px;
+    margin: 12px auto;
+    padding: 0;
 }
 
-.projects-title {
+.projects .projects-title {
     padding-top: 0;
+    margin: 0;
+    color: var(--vp-c-text-2);
 }
 
-.project-card {
+.projects .project-card {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -145,23 +137,23 @@ const projects = [
     cursor: pointer;
 }
 
-.project-icon {
+.projects .project-card .project-icon {
     width: 48px;
     height: 48px;
     border-radius: 8px;
 }
 
-.project-info {
+.projects .project-card .project-info {
     flex: 1;
     overflow: hidden;
 }
 
-.project-info h3 {
+.projects .project-card .project-info h3 {
     margin: 0;
     font-size: 18px;
 }
 
-.project-info p {
+.projects .project-card .project-info p {
     line-height: 18px;
     margin: 0;
     font-size: 14px;
@@ -177,10 +169,12 @@ const projects = [
 
 /* To Blog Button */
 .to-blog {
-    margin-top: 18px;
+    margin: 12px auto;
+    padding: 0;
+    text-align: center;
 }
 
-.blog-button {
+.to-blog .blog-button {
     display: inline-block;
     padding: 6px 12px;
     /* background: var(--vp-c-bg-soft); */
@@ -191,7 +185,7 @@ const projects = [
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.blog-button:hover {
+.to-blog .blog-button:hover {
     background: var(--vp-c-bg-mute);
     transform: translateY(-2px);
 }
