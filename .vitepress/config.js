@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { getPosts } from './theme/serverUtils'
 
-const pageSize = 5
+const pageSize = 10
 
 export default defineConfig({
     lang: 'zh-CN',

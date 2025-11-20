@@ -7,7 +7,10 @@
         </div>
         <p class="describe" v-html="article.frontMatter.description"></p>
         <div class='post-info'>
-            {{ article.frontMatter.date }} <span v-for="item in article.frontMatter.tags"><a :href="withBase(`/pages/tags.html?tag=${item}`)"> {{ item }}</a></span>
+            {{ article.frontMatter.date }}
+            <span class="tag" v-for="item in article.frontMatter.tags">
+                <a :href="withBase(`/pages/tags.html?tag=${item}`)">{{ item }}</a>
+            </span>
         </div>
     </div>
 
@@ -17,7 +20,7 @@
             :class="{ active: pageCurrent === i }"
             v-for="i in pagesNum"
             :key="i"
-            :href="withBase(i === 1 ? '/index.html' : `/page_${i}.html`)"
+            :href="withBase(i === 1 ? '/blogs' : `/blogs/page_${i}.html`)"
         >{{ i }}</a>
     </div>
 </template>
@@ -57,6 +60,9 @@ const props = defineProps({
     color: var(--vp-c-text-2);
     margin: 10px 0;
     line-height: 1.5rem;
+}
+.tag {
+    margin-bottom: 4px;
 }
 .pagination {
     margin-top: 16px;
