@@ -1,3 +1,4 @@
+@import '@fortawesome/fontawesome-free/css/all.css';
 :root {
 
     --vp-c-brand: #2563eb !important;
@@ -17,6 +18,15 @@
     --vp-c-brand: #3b82f6;
 }
 
+body {
+  font-family: 'SF Pro Rounded', 'SF Pro Display', 'SF Pro Text',
+    'Helvetica Neue', Helvetica, 'Segoe UI', 'PingFang SC', 'HarmonyOS Sans SC',
+    'Noto Sans SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+}
+
+.VPLocalSearchBox .text {
+    font-size: 1rem !important;
+}
 
 /* theme reset start */
 
@@ -38,7 +48,6 @@
     letter-spacing: 1px;
     font-weight: 600 !important;
     text-transform: uppercase;
-    font-family: var(--date-font-family);
 }
 
 .content a[rel~='noreferrer']:link, a[rel~='noreferrer']:visited {
@@ -174,7 +183,6 @@ h3 {
 }
 .date {
     color: var(--date-color);
-    font-family: var(--date-font-family);
 }
 
 .post-info {

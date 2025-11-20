@@ -18,7 +18,7 @@ export default defineConfig({
         website: 'https://github.com/bulv0620', //copyright link
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Blogs', link: '/blogs' },
+            { text: 'Blogs', link: '/blogs/index' },
             { text: 'Archives', link: '/pages/archives' },
             { text: 'Tags', link: '/pages/tags' },
         ],
