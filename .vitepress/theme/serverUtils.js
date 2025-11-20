@@ -33,7 +33,7 @@ async function generatePaginationPages(total, pageSize) {
             const page = `
 ---
 page: true
-title: blogs
+title: Blogs
 aside: false
 ---
 <script setup>
