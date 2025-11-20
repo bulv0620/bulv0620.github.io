@@ -5,7 +5,7 @@
         </span>
     </div>
     <div class="tag-header">{{ selectTag }}</div>
-    <a :href="withBase(article.regularPath)" v-for="(article, index) in data[Number(selectTag)]" :key="index" class="posts">
+    <a :href="withBase(article.regularPath)" v-for="(article, index) in data[selectTag]" :key="index" class="posts">
         <div class="post-container">
             <div class="post-dot"></div>
             {{ article.frontMatter.title }}

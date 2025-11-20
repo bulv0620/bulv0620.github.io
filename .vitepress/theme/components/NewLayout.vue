@@ -4,7 +4,7 @@
             <div style="padding-top: 20px" class="post-info" v-if="!$frontmatter.page">
                 {{ $frontmatter.date?.substring(0, 10) }}
                 &nbsp;&nbsp;
-                <span v-for="item in $frontmatter.tags" :key="item">
+                <span class="tag" v-for="item in $frontmatter.tags" :key="item">
                     <a :href="withBase(`/pages/tags.html?tag=${item}`)"> {{ item }}</a>
                 </span>
             </div>
@@ -30,5 +30,9 @@ body {
 
 .VPLocalSearchBox .text {
     font-size: 1rem !important;
+}
+
+.tag {
+    margin-bottom: 4px;
 }
 </style>
