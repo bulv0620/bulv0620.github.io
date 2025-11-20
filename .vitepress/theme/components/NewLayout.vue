@@ -21,17 +21,6 @@ const { Layout } = DefaultTheme
 </script>
 
 <style>
-@import '@fortawesome/fontawesome-free/css/all.css';
-body {
-  font-family: 'SF Pro Rounded', 'SF Pro Display', 'SF Pro Text',
-    'Helvetica Neue', Helvetica, 'Segoe UI', 'PingFang SC', 'HarmonyOS Sans SC',
-    'Noto Sans SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-}
-
-.VPLocalSearchBox .text {
-    font-size: 1rem !important;
-}
-
 .tag {
     margin-bottom: 4px;
 }
