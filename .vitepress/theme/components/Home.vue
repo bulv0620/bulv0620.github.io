@@ -27,7 +27,7 @@
         <!-- projects -->
         <div class="projects">
             <div class="projects-title">Projects</div>
-            <a class="project-card" href="https://github.com/bulv0620/Bridge" target="_blank">
+            <a class="project-card" href="https://bridge.bulv.cc" target="_blank">
                 <img class="project-icon" src="../assets/images/bridge-icon.png" alt="icon" />
                 <div class="project-info">
                     <h3>Bridge</h3>
