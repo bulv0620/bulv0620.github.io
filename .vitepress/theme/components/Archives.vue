@@ -1,5 +1,5 @@
 <template>
-    <div v-for="yearList in data">
+    <div v-for="yearList in data" class="wrapper">
         <div class="year">
             {{ yearList[0].frontMatter.date.split('-')[0] }}
         </div>
@@ -23,9 +23,22 @@ const data = computed(() => useYearSort(theme.value.posts))
 </script>
 
 <style scoped>
+.wrapper {
+    margin: 24px 0 48px;
+    position: relative;
+}
 .year {
-    padding: 14px 0 8px 0;
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 5rem;
+    font-weight: 800;
+    color: transparent;              /* 中间透明 */
+    -webkit-text-stroke: 4px var(--vp-c-gray-soft);    /* 描边 */
+    z-index: 1;
+    user-select: none;
+    margin-left: 38px;
+}
+
+.posts {
+    position: relative;
+    z-index: 2;
 }
 </style>
