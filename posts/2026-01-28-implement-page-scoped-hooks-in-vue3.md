@@ -35,7 +35,7 @@ description: 本文介绍了一种在 Vue 3 中实现页面级作用域 Hook 的
 
 此时我定义一个全局单例 hook：
 
-```
+```typescript
 function useCounter() {
   const count = ref(0)
   const inc = () => count.value++
@@ -45,7 +45,7 @@ function useCounter() {
 
 在页面中使用时：
 
-```
+```vue
 <script setup lang="ts">
 const { count, inc } = useCounter()
 </script>
@@ -123,7 +123,7 @@ export function createPageScopedHook<T>(factory: () => T) {
 
 定义一个页面级计数器：
 
-```
+```typescript
 const usePageCounter = createPageScopedHook(() => {
   const count = ref(0)
   const inc = () => count.value++
@@ -133,7 +133,7 @@ const usePageCounter = createPageScopedHook(() => {
 
 然后在页面组件中直接使用：
 
-```
+```vue
 <script setup lang="ts">
 const { count, inc } = usePageCounter()
 </script>
