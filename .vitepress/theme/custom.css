@@ -140,16 +140,16 @@ h3 {
         font-size: 1.25rem !important;
     }
     .posts {
-        padding: 4px;
+        padding: 4px !important;
     }
     .post-dot {
-        margin-right: 4px;
+        margin-right: 4px !important;
     }
     .post-container {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 16.5em;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        width: 16.5em !important;
     }
 }
 

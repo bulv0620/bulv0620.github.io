@@ -27,10 +27,12 @@ const data = computed(() => useYearSort(theme.value.posts))
     margin: 24px 0 48px;
 }
 .year {
-    font-size: 5rem;
-    font-weight: 800;
-    color: transparent;              /* 中间透明 */
-    -webkit-text-stroke: 4px var(--vp-c-gray-soft);    /* 描边 */
-    user-select: none;
+  font-size: 5rem;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--vp-c-gray-soft);
+  text-transform: uppercase;
+  user-select: none;
+  word-break: break-all;
 }
 </style>
