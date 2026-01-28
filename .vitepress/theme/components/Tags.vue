@@ -66,9 +66,9 @@ const toggleTag = (tag) => {
 .tags-nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1rem;
     border-bottom: 1px solid var(--vp-c-divider);
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
 }
 
 .tag-item {
