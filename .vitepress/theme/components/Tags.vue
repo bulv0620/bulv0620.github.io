@@ -41,6 +41,9 @@ import { initTags } from '../functions'
 
 const { theme } = useData()
 
+let url = location.href.split('?')[1]
+let params = new URLSearchParams(url)
+
 const data = computed(() => initTags(theme.value.posts))
 const tagList = computed(() => {
     return Object.keys(data.value)
@@ -51,7 +54,7 @@ const tagList = computed(() => {
         .sort((a, b) => b.postList.length - a.postList.length)
 })
 
-let selectTag = ref(tagList.value.length > 0 ? tagList.value[0].tagName : '')
+let selectTag = ref(params.get('tag') ? params.get('tag') : (tagList.value.length > 0 ? tagList.value[0].tagName : ''))
 
 const toggleTag = (tag) => {
     selectTag.value = tag
@@ -68,7 +71,7 @@ const toggleTag = (tag) => {
     flex-wrap: wrap;
     gap: 1rem;
     border-bottom: 1px solid var(--vp-c-divider);
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
 }
 
 .tag-item {
@@ -88,7 +91,7 @@ const toggleTag = (tag) => {
 .tag-item.active::after {
     content: '';
     position: absolute;
-    bottom: -0.5rem;
+    bottom: -0.2rem;
     left: 0;
     width: 100%;
     height: 2px;
