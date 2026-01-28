@@ -25,20 +25,12 @@ const data = computed(() => useYearSort(theme.value.posts))
 <style scoped>
 .wrapper {
     margin: 24px 0 48px;
-    position: relative;
 }
 .year {
     font-size: 5rem;
     font-weight: 800;
     color: transparent;              /* 中间透明 */
     -webkit-text-stroke: 4px var(--vp-c-gray-soft);    /* 描边 */
-    z-index: 1;
     user-select: none;
-    margin-left: 38px;
-}
-
-.posts {
-    position: relative;
-    z-index: 2;
 }
 </style>
