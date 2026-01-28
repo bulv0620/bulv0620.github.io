@@ -95,7 +95,7 @@ const toggleTag = (tag) => {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--vp-c-brand-1);
+    background-color: var(--vp-c-brand);
 }
 
 .count {
