@@ -11,11 +11,11 @@ description: 在Docker中导入导出MongoDB实例的数据
 
 当我们进行数据库迁移的时候，自然而然就会用到数据库的导入和导出，本文将介绍MongoDB数据导出导入的方式，以及如何在Docker中导入导出MongoDB实例的数据。
 
-## 1、数据导出：mongoexport
+## 一、数据导出：mongoexport
 
 Mongdb中的mongoexport 工具可以将collection 导出成JSON格式或者CSV格式的文件。可以通过参数指定导出的数据项，也可以根据指定的条件导出数据。
 
-### 1.1、语法
+### 1、语法
 
 ```mongoexport -h [host] --port [port] -u [username] -p [password] -d [dbname] -c [collectionname] -o [fiepath] --type [json/csv] -f [field]```
 
@@ -29,7 +29,7 @@ Mongdb中的mongoexport 工具可以将collection 导出成JSON格式或者CSV�
 - `--type`: 输出的格式。默认为json
 - `-f`: 输出的字段，如果type为CSV，则需要加上 -f "字段名"
 
-### 1.2、示例
+### 2、示例
 
 ```bash
 mongoexport -h 127.0.0.1 --port 27017 -u username -p password -d testdb -c testc -o /home/mongodb --type json
@@ -37,11 +37,11 @@ mongoexport -h 127.0.0.1 --port 27017 -u username -p password -d testdb -c testc
 
 
 
-## 2、数据导入：mongoimport
+## 二、数据导入：mongoimport
 
 mongoimport工具用于导入格式为JSON或CSV的数据。
 
-### 2.1、语法
+### 1、语法
 
 `mongoimport -h [host] --port [port] -u [username] -p [password] -d [dbname] -c [collectionname] --file [fiepath] --type [json/csv] -f [field] `
 
@@ -55,7 +55,7 @@ mongoimport工具用于导入格式为JSON或CSV的数据。
 - `--type`: 输出的格式。默认为json
 - `-f`: 输出的字段，如果type为CSV，则需要加上 -f "字段名"
 
-### 1.2、示例
+### 2、示例
 
 ```bash
 mongoexport -h 127.0.0.1 --port 27017 -u username -p password -d testdb -c testc --file /home/mongodb/export.json --type json
@@ -63,11 +63,11 @@ mongoexport -h 127.0.0.1 --port 27017 -u username -p password -d testdb -c testc
 
 
 
-## 3、导出所有数据：mongodump
+## 三、导出所有数据：mongodump
 
 mongodump工具可以导出数据库所有数据。
 
-### 3.1、语法
+### 1、语法
 
 `mongodump -h [host] --port [port] -u [username] -p [password] -d [dbname] -o [filepath] `
 
@@ -78,7 +78,7 @@ mongodump工具可以导出数据库所有数据。
 - `-d`: 数据库名
 - `-o`: 输出文件位置
 
-### 3.2、示例
+### 2、示例
 
 ```bash
 mongodump -h 127.0.0.1 --port 27017 -u username -p password -d testdb -o /home/mongodb/testdb
@@ -86,9 +86,9 @@ mongodump -h 127.0.0.1 --port 27017 -u username -p password -d testdb -o /home/m
 
 
 
-## 4、数据恢复：mongorestore
+## 四、数据恢复：mongorestore
 
-### 3.1、语法
+### 1、语法
 
 `mongorestore -h [host] --port [port] -u [username] -p [password] -d [dbname] --dir [filepath] `
 
@@ -99,7 +99,7 @@ mongodump -h 127.0.0.1 --port 27017 -u username -p password -d testdb -o /home/m
 - `-d`: 数据库名
 - `--dir`: 备份文件位置
 
-### 3.2、示例
+### 2、示例
 
 ```bash
 mongorestore -h 127.0.0.1 --port 27017 -u username -p password -d testdb --dir /home/mongodb/testdb
@@ -107,15 +107,15 @@ mongorestore -h 127.0.0.1 --port 27017 -u username -p password -d testdb --dir /
 
 
 
-## 5、Docker中备份及恢复mongodb
+## 五、Docker中备份及恢复mongodb
 
-### 5.1、打开mongodb bash
+### 1、打开mongodb bash
 
 ```bash
 docker exec -it mongodb bash
 ```
 
-### 5.2、导出数据库
+### 2、导出数据库
 
 ```bash
 mongodump -h 127.0.0.1 --port 27017 -d test -u root -p [password] -o home/mongodb/ --authenticationDatabase admin
@@ -123,13 +123,13 @@ mongodump -h 127.0.0.1 --port 27017 -d test -u root -p [password] -o home/mongod
 
 执行后，数据将会备份到容器的`/home/mongodb`文件夹中
 
-### 5.3、导入数据库
+### 3、导入数据库
 
 ```bash
 mongorestore -h 127.0.0.1 --port 27017 -u root -p [password] -d testdb --dir /home/mongodb/ --authenticationDatabase admin
 ```
 
-### 5.4、取出docker中的备份数据
+### 4、取出docker中的备份数据
 
 ```bash
 docker cp [name]:[path] [outpath]

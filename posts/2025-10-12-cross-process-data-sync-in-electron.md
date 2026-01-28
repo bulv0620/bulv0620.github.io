@@ -13,7 +13,7 @@ description: 介绍一种在Electron中实现主进程与渲染进程数据双�
 
 # 在Electron中实现跨进程数据双向同步
 
-## 1、背景与出发点
+## 一、背景与出发点
 
 在 Electron 应用开发中，我们经常会遇到这样的场景：
 
@@ -28,7 +28,7 @@ description: 介绍一种在Electron中实现主进程与渲染进程数据双�
 
 
 
-## 2、问题：双份状态导致的同步噩梦
+## 二、问题：双份状态导致的同步噩梦
 
 在 Electron 的安全模型下，**渲染进程不能直接访问 Node API**，而是必须通过 `preload` 暴露的安全接口进行通信。
 
@@ -56,7 +56,7 @@ ipcMain.on('update-list', (e, list) => {
 
 
 
-## 3、设计目标：一个能在主渲染间自动同步的“ref”
+## 三、设计目标：一个能在主渲染间自动同步的“ref”
 
 于是我设计了一个通用机制 —— **`remoteRef`**。
 
@@ -79,13 +79,11 @@ const list = useRemoteRef('shared-files', [])
 list.value.push(newFile) // 会自动同步到主进程和其他窗口
 ```
 
-是不是看起来很像 Vuex 的跨进程版本？😄
-
 ---
 
 
 
-## 4、核心实现思路
+## 四、核心实现思路
 
 整个实现由三部分组成：
 
@@ -110,7 +108,7 @@ list.value.push(newFile) // 会自动同步到主进程和其他窗口
 
 ---
 
-### 4.1、主进程：remoteRef 创建与广播
+### 1、主进程：remoteRef 创建与广播
 
 ```typescript
 export function remoteRef<T>(channel: string, initialValue: T): RemoteRefMain<T> {
@@ -161,7 +159,7 @@ export function remoteRef<T>(channel: string, initialValue: T): RemoteRefMain<T>
 }
 ```
 
-👉 简而言之：
+简而言之：
 
 - 主进程维护 `value`；
 - 渲染进程可通过 `remote-ref:change` 请求修改；
@@ -169,7 +167,7 @@ export function remoteRef<T>(channel: string, initialValue: T): RemoteRefMain<T>
 
 ------
 
-### 4.2、Preload 桥接层：remoteRefBridge
+### 2、Preload 桥接层：remoteRefBridge
 
 `preload` 层是安全通信桥，暴露受控 API：
 
@@ -211,7 +209,7 @@ contextBridge.exposeInMainWorld('remoteRef', remoteRefBridge)
 
 ------
 
-### 4.3、渲染进程：Vue 响应式绑定
+### 3、渲染进程：Vue 响应式绑定
 
 渲染端可以直接用 Vue3 的 `ref` 来包裹远程数据：
 
@@ -258,9 +256,9 @@ export function useRemoteRef<T>(channel: string, initialValue: T): Ref<T> {
 
 
 
-## 5、 使用示例
+## 五、 使用示例
 
-### 5.1、主进程
+### 1、主进程
 
 ```typescript
 // main.ts
@@ -269,7 +267,7 @@ import { remoteRef } from './utils/remoteRef'
 export const sharedFiles = remoteRef('shared-files', [])
 ```
 
-### 5.2、渲染进程
+### 2、渲染进程
 
 ```typescript
 // useSharedFiles.ts
@@ -281,7 +279,7 @@ export const useSharedFiles = () => {
 }
 ```
 
-### 5.3、Vue 组件
+### 3、Vue 组件
 
 ```vue
 <template>
@@ -305,32 +303,32 @@ function addFile() {
 </script>
 ```
 
-> ✅ 现在，无论哪个窗口添加文件，主进程和所有渲染进程的列表都会自动同步！
+> 现在，无论哪个窗口添加文件，主进程和所有渲染进程的列表都会自动同步！
 
 
 
-## 6、总结
+## 六、总结
 
-| 特性         | 说明                                 |
-| ------------ | ------------------------------------ |
-| 🧭 简洁       | 不需要手写繁琐的 IPC 通信            |
-| 🔄 自动同步   | 任意端修改都会广播更新               |
-| 🧠 防循环     | `txnId` 防止回环触发                 |
-| 🪟 多窗口共享 | 所有窗口保持一致                     |
-| 🧹 可销毁     | 关闭窗口时可清理监听                 |
-| ⚙️ 可扩展     | 可以封装成 store 层或 reactive model |
+| 特性       | 说明                                 |
+| ---------- | ------------------------------------ |
+| 简洁       | 不需要手写繁琐的 IPC 通信            |
+| 自动同步   | 任意端修改都会广播更新               |
+| 防循环     | `txnId` 防止回环触发                 |
+| 多窗口共享 | 所有窗口保持一致                     |
+| 可销毁     | 关闭窗口时可清理监听                 |
+| 可扩展     | 可以封装成 store 层或 reactive model |
 
 `remoteRef` 让主进程与渲染进程之间的状态共享变得像操作本地变量一样自然。
  它本质上是一种**跨进程响应式同步机制**，在 Electron 的多进程架构中非常实用。
 
 当然未来可以进一步扩展：
 
-- ✅ 支持单向只读同步（如日志流）；
-- ✅ 支持差量更新（Patch 而不是全量结构）；
-- ✅ 与 `Pinia` 或 `Vuex` 自动集成；
-- ✅ 结合 `BroadcastChannel` 实现跨设备同步。
+- 支持单向只读同步（如日志流）；
+- 支持差量更新（Patch 而不是全量结构）；
+- 与 `Pinia` 或 `Vuex` 自动集成；
+- 结合 `BroadcastChannel` 实现跨设备同步。
 
 ------
 
-💬 如果你也在开发 Electron 应用、苦于主渲染状态同步的麻烦，
- 不妨试试这种模式——**让你的数据自然流动起来**。
+如果你也在开发 Electron 应用、苦于主渲染状态同步的麻烦，
+不妨试试这种模式——**让你的数据自然流动起来**。

@@ -8,7 +8,7 @@ description: 在服务器中安装MongoDB
 
 # 在服务器安装MongoDB
 
-## 1、安装MongoDB
+## 一、安装MongoDB
 
 ```shell
 #!/bin/bash
@@ -67,7 +67,7 @@ iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 27017 -j ACCEPT
 
 ​	
 
-## 2、添加管理员信息
+## 二、添加管理员信息
 
 ​	shell脚本所生成的配置中是启用了身份验证的。我们在安装完mongodb后，此时库里面并没有管理员身份信息录入，所以可以不需要账号密码正常访问，当我们创建了一个管理员用户后，此时没有认证信息的话，是不能对数据库进行任何操作的。
 
@@ -94,7 +94,7 @@ iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 27017 -j ACCEPT
 
 
 
-## 3、连接使用
+## 三、连接使用
 
 ​	在nodejs项目中使用mongoose连接数据库：
 

@@ -9,7 +9,7 @@ description: 本文介绍Promise使用指南及常见的误用
 
 # Promise使用指南及常见的误用
 
-## 1、认识异步
+## 一、认识异步
 
 这是一个最传统的接口请求函数:
 
@@ -97,7 +97,7 @@ description: 本文介绍Promise使用指南及常见的误用
 
 
 
-## 2、认识Promise
+## 二、认识Promise
 
 不像同步函数一般，异步函数需要取到结果，必须用回调的方式，这样的传统回调方式会出现很可怕的结果，回调地狱
 
@@ -235,7 +235,7 @@ var result = req() // 这样显然是不行滴
 
 
 
-## 3、应用Promise
+## 三、应用Promise
 
 我们将之前的request改造为Promise的形式，在请求成功后调用`resolve()`并将结果传入，失败后调用`reject()`
 
@@ -409,7 +409,7 @@ requestA('data').then((resA) => {
 
 
 
-## 4、async await
+## 四、async await
 
 前面已经介绍了Promise的链式调用：
 
@@ -538,7 +538,7 @@ r2().then(res2 => {
 
 
 
-## 5、实践
+## 五、实践
 
 可能看完`async await`的示例后，发现也就这样，代码稍微清晰点，也没啥实质性的效果，习惯了`Promise.then()`，改回同步的写法思路，反而陌生，没必要。
 
@@ -770,6 +770,6 @@ const res = await request()
 
 
 
-## 6、参考文档
+## 六、参考文档
 
 [5 Common Mistakes when Using Promises | by Ravidu Perera | Bits and Pieces (bitsrc.io)](https://blog.bitsrc.io/5-common-mistakes-in-using-promises-bfcc4d62657f)

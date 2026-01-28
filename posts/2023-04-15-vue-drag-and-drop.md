@@ -13,9 +13,9 @@ description: 本文介绍在Vue3项目中，如何实现拖拽的效果，并附
 
 本文介绍在Vue3项目中，如何实现拖拽的效果，并附示例代码。
 
-## 1、Drag API
+## 一、Drag API
 
-### 1.1、简介
+### 1、简介
 
 Drag API是H5的新功能，只需要对想拖拽的元素标签加上属性`draggable="true"`，就可以对元素进行自由拖拽了。
 
@@ -33,7 +33,7 @@ HTML的drag和drop使用了`DOM event model`以及从`mouse event`继承而来�
 | `dragstart` | `ondragstart`    | 当用户开始拖拽一个元素或选中的文本时触发。                   |
 | `drop`      | `ondrop`         | 当元素或选中的文本在可释放目标上被释放时触发。               |
 
-### 1.2、示例
+### 2、示例
 
 利用Drag API我们可以很快写出拖拽操作，我们需要对Vue模板的拖拽元素标签，添加以下属性：
 
@@ -217,11 +217,9 @@ ul li {
 
  ![vue3实现拖拽gif](https://bucket.bulv.cc/2025/09/9d64791d44451ff1f87102d1d133aeba.gif)
 
+## 二、vue.draggable.next
 
-
-## 2、vue.draggable.next
-
-### 2.1、简介
+### 1、简介
 
 上面介绍了原生Drag API配合Vue动画实现的拖拽效果，当然在项目中写原生还是太麻烦了，尤其遇到复杂的拖拽需求，写原生非常的伤脑筋。这时候就应该谷歌搜索一下有没有第三方好用的库了，所以vue.draggable.next库映入眼帘。
 
@@ -231,7 +229,7 @@ ul li {
 
 vue.draggable.next是vue.draggable适配vue3的升级版，基于Sortable.js实现。可以让我们非常优雅简单的实现拖拽效果。
 
-### 2.2、API
+### 2、API
 
 | 属性名称            | 说明                                                         |
 | :------------------ | :----------------------------------------------------------- |
@@ -258,7 +256,7 @@ vue.draggable.next是vue.draggable适配vue3的升级版，基于Sortable.js实�
 
 
 
-### 2.3、安装
+### 3、安装
 
 ```shell
 npm i -S vuedraggable@next
@@ -266,11 +264,11 @@ npm i -S vuedraggable@next
 yarn add vuedraggable@next
 ```
 
-### 2.4、示例
+### 4、示例
 
 本文将提供两个示例，一个类似刚刚原生实现的单列表拖拽，另一个实现多列表间拖拽。
 
-#### 2.3.1、单列表
+#### 单列表
 
 利用vue-draggable-next库可以非常快速实现单列表拖拽效果：
 
@@ -337,7 +335,7 @@ ul li {
 
  ![第三方库实现拖拽](https://bucket.bulv.cc/2025/09/4f885f209d86cb15b95daa2aa8c5c649.gif)
 
-#### 2.3.2、多列表
+#### 多列表
 
 多列表的示例将实现：三个不同的列表（待进行、进行中、已完成）间自由拖拽。
 
