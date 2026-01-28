@@ -61,9 +61,22 @@ const props = defineProps({
     margin: 10px 0;
     line-height: 1.5rem;
 }
-.tag {
-    margin-bottom: 4px;
+
+.post-info {
+    font-size: 12px;
 }
+
+.post-info span {
+    display: inline-block;
+    padding: 0 8px;
+    background-color: var(--vp-c-bg-alt);
+    margin-right: 6px;
+    margin-bottom: 4px;
+    transition: 0.4s;
+    border-radius: 2px;
+    color: var(--vp-c-text-1);
+}
+
 .pagination {
     margin-top: 16px;
     display: flex;
@@ -103,17 +116,16 @@ const props = defineProps({
         justify-content: space-between;
     }
     .post-title {
-        font-size: 1.0625rem;
+        font-size: 1.125rem;
         font-weight: 400;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
         overflow: hidden;
-        width: 17rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     .describe {
-        font-size: 0.9375rem;
+        font-size: 1rem;
         display: -webkit-box;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
         overflow: hidden;

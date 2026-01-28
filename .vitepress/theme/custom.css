@@ -1,6 +1,5 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 :root {
-
     --vp-c-brand: #2563eb !important;
     --vp-c-brand-light: var(--vp-c-brand);
     --vp-c-brand-lighter: var(--vp-c-brand);
@@ -19,9 +18,9 @@
 }
 
 body {
-  font-family: 'SF Pro Rounded', 'SF Pro Display', 'SF Pro Text',
-    'Helvetica Neue', Helvetica, 'Segoe UI', 'PingFang SC', 'HarmonyOS Sans SC',
-    'Noto Sans SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+    font-family:
+        'SF Pro Rounded', 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, 'Segoe UI', 'PingFang SC',
+        'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
 }
 
 .VPLocalSearchBox .text {
@@ -50,7 +49,8 @@ body {
     text-transform: uppercase;
 }
 
-.content a[rel~='noreferrer']:link, a[rel~='noreferrer']:visited {
+.content a[rel~='noreferrer']:link,
+a[rel~='noreferrer']:visited {
     color: var(--vp-c-brand);
     font-weight: 500 !important;
     border-bottom: 1px solid var(--vp-c-brand);
@@ -95,7 +95,6 @@ h3 {
     max-width: 60rem !important;
 }
 
-
 @media (min-width: 768px) {
     .VPDoc {
         padding-top: 10px !important;
@@ -129,7 +128,6 @@ h3 {
     }
 }
 
-
 /*mobile*/
 @media screen and (max-width: 768px) {
     .VPDoc {
@@ -139,62 +137,4 @@ h3 {
     .vp-doc h1 {
         font-size: 1.25rem !important;
     }
-    .posts {
-        padding: 4px !important;
-    }
-    .post-dot {
-        margin-right: 4px !important;
-    }
-    .post-container {
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        white-space: nowrap !important;
-        width: 16.5em !important;
-    }
 }
-
-/* for aside end */
-/* theme reset end */
-
-/*tags and archives page style*/
-.posts {
-    padding: 4px 0 4px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.post-dot {
-    display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 3px;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: var(--li-dot-color);
-}
-
-.post-container {
-    color: var(--vp-c-text-2);
-    font-size: 0.9375rem;
-    font-weight: 400;
-}
-.post-container:hover {
-    color: var(--vp-c-brand);
-}
-.date {
-    color: var(--date-color);
-}
-
-.post-info {
-    font-size: 12px;
-}
-.post-info span {
-    display: inline-block;
-    padding: 0 8px;
-    background-color: var(--vp-c-bg-alt);
-    margin-right: 10px;
-    transition: 0.4s;
-    border-radius: 2px;
-    color: var(--vp-c-text-1);
-}
-

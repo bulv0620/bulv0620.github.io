@@ -67,7 +67,6 @@ const toggleTag = (tag) => {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
-    margin-bottom: 3rem;
     border-bottom: 1px solid var(--vp-c-divider);
     padding-bottom: 1rem;
 }
@@ -103,19 +102,60 @@ const toggleTag = (tag) => {
 }
 
 .tag-bg-title {
+    margin: 2rem 0;
     font-size: 4rem;
     font-weight: 800;
     color: transparent;
     -webkit-text-stroke: 2px var(--vp-c-gray-soft);
-    margin-bottom: 3rem;
     text-transform: uppercase;
     user-select: none;
     word-break: break-all;
 }
 
+.posts {
+    padding: 4px 0 4px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-dot {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--li-dot-color);
+}
+
+.post-container {
+    color: var(--vp-c-text-2);
+    font-size: 0.9375rem;
+    font-weight: 400;
+}
+.post-container:hover {
+    color: var(--vp-c-brand);
+}
+.date {
+    color: var(--date-color);
+}
+
 @media screen and (max-width: 768px) {
     .tag-bg-title {
         font-size: 2rem;
+        margin: 1rem 0;
+    }
+    .posts {
+        padding: 4px;
+    }
+    .post-dot {
+        margin-right: 4px;
+    }
+    .post-container {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 16.5em;
     }
 }
 </style>
