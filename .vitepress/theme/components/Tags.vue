@@ -105,7 +105,7 @@ const toggleTag = (tag) => {
 }
 
 .tag-bg-title {
-    margin: 2rem 0;
+    margin-top: 2rem;
     font-size: 4rem;
     font-weight: 800;
     color: transparent;
@@ -146,7 +146,7 @@ const toggleTag = (tag) => {
 @media screen and (max-width: 768px) {
     .tag-bg-title {
         font-size: 2rem;
-        margin: 1rem 0;
+        margin-top: 1rem;
     }
     .posts {
         padding: 4px;
